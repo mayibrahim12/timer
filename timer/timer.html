@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet" href="style.css"/>
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1 class="ll" >My Timer</h1>
+    <div class="icon"> 
+        
+        <input type="number" min="0" max="2" class="icon1" id="one"></button>
+        <input type="number" min="0" max="3" class="icon1" id="one1"></button>
+        <span class="qw" >:</span>
+        <input type="number" min="0" max="5" class="icon2" id="sec"></button>
+        <input type="number" min="0" max="9" class="icon2" id="sec1"></button>
+        <span class="qw">:</span>
+        <input type="number" min="0" max="5" class="icon3" id="thir"></button>
+        <input type="number" min="0" max="9" class="icon3" id="thir1"></button>
+        <button  class ="re" onclick="myTimer()" >start</button>
+        <button class ="re" onclick="zero()">reset</button>
+       
+    </div>
+    
+</body>
+</html>
+<script>
+ //   let s1=document.getElementById("one").value;
+  //   let s2=document.getElementById("one1").value;
+   //  let s3=document.getElementById("sec").value;
+   //  let s4=document.getElementById("sec1").value;
+   // let s5=document.getElementById("thir").value;
+  //  let s6=document.getElementById("thir1").value;
+
+    function myTimer(){
+        setInterval(start , 1000);
+    }
+    
+    // let h= s1*10+s2
+    // let m= s3*10+s4;
+    // let s= s5*10+s6;
+function start() {
+    // console.log('nkdsnk');
+
+   
+   let h1=document.getElementById("one").value %10;
+   let h2=document.getElementById("one1").value %10;
+
+   let m1=document.getElementById("sec").value %10;
+   let m2=document.getElementById("sec1").value %10;
+
+   let s1=document.getElementById("thir").value %10;
+   let s2=document.getElementById("thir1").value %10;
+  
+
+    let h= h1*10+h2;
+    let m= m1*10+m2;
+    let s= s1*10+s2;
+    if (s){
+        s--;
+        document.getElementById("thir").value = parseInt(s /10) %10;
+        document.getElementById("thir1").value = parseInt(s %10);
+
+ 
+
+  
+    }
+   else if (m)
+   {   
+    document.getElementById("sec").value = parseInt(m /10) %10;
+        document.getElementById("sec1").value = parseInt(m %10);
+     m--;
+    s = 59;
+
+   }
+   else if(h){
+    
+
+    document.getElementById("one").value = parseInt(h /10) %10;
+        document.getElementById("one1").value = parseInt(h %10);
+    
+       
+        
+    h--;
+    m=59;
+    s=59;
+
+   }
+   else {
+       return;
+   }
+   }
+ 
+</script>
